@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Work Alert",
+  "description": "Work Alert makes finding Upwork jobs easier. Don't spend hours searching, get notifications when jobs are posted.",
+  "options_page": "options.html",
+  "background": { "service_worker": "background.bundle.js" },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon-sm.png"
+  },
+  
+  "icons": {
+    "128": "icon-sm.png"
+  },
+  "permissions":[
+    "background",
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*", "<all_urls>"],
+      "js": ["contentScript.bundle.js"],
+      "css": ["content.styles.css"]
+    }
+  ],
+  "devtools_page": "devtools.html",
+  "web_accessible_resources": [
+    {
+      "resources": ["content.styles.css", "icon-sm.png", "icon-sm.png"],
+      "matches": []
+    }
+  ]
+}
